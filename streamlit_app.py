@@ -37,7 +37,7 @@ streamlit.dataframe (fruits_to_show)
  #   streamlit.dataframe(fruityvice_normalized)
 #streamlit.write('The user entered ', fruit_choice)
 
-#except URLError as e:
+ #except URLError as e:
   #streamlit.error()
 
 #create function
@@ -57,7 +57,8 @@ try:
   else:
      back_from_function = get_fruityvice_data(fruit_choice)
      streamlit.dataframe(back_from_function)
-
+except URLError as e:
+streamlit.error()
 streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
